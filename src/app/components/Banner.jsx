@@ -31,7 +31,7 @@ const Hero = () => {
         <div className="mt-6 flex flex-col md:flex-row justify-center items-center gap-4 text-slate-500 text-sm">
           <span>📞 +123-456-7890</span>
           <span className="hidden md:block">|</span>
-          <span>✉️ info@nanokite.com</span>
+          <span>✉️ nanokite1@gmail.com</span>
         </div>
 
       </div>

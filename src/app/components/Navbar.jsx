@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "../assets/img/nanokite_logo.jpeg";
+import logo from "../assets/img/nanokite_logo1.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

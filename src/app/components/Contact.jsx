@@ -206,7 +206,7 @@ const Contact = () => {
 
             <div className="space-y-3 text-slate-600">
               <p>📞 +8801XXXXXXXXX</p>
-              <p>✉️ info@nanokite.com</p>
+              <p>✉️ nanokite1@gmail.com</p>
               <p>📍 Chattogram, Bangladesh</p>
             </div>
           </div>
