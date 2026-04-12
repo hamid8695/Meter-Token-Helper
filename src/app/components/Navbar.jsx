@@ -1,96 +1,65 @@
 'use client'
-import React, { useState, useEffect } from "react";
-import custom_style from '../style/custom.css'
-import Logo from "../assets/img/logo-hamid.png";
+import React, { useState } from "react";
 import Image from "next/image";
-const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [menuHeight, setMenuHeight] = useState(0);
-  const links = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experiences" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact" },
-  ];
+import logo from "../assets/img/nanokite_logo.jpeg";
 
-  useEffect(() => {
-    const height = mobileMenuOpen ? links.length * 48 + 32 : 0; 
-    setMenuHeight(height);
-  }, [mobileMenuOpen, links.length]);
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
+  // scroll function
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    section?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false); // mobile menu close
+  };
 
   return (
-    <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md shadow-md z-50 transition-all">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <a href="#home">
-              <div className="flex items-center space-x-2">
-              <Image
-                  src={Logo}
-                  alt="Logo"
-                  width={150}    
-                  height={150}  
-                  className="object-contain"
-                />
-              </div>
-          </a>   
-          <div className="hidden md:flex space-x-8">
-            {links.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-slate-600 hover:text-blue-600 transition-colors duration-300 font-medium "
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          <button
-            className="md:hidden p-2 rounded-md text-slate-600 hover:text-blue-600 focus:outline-none"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              {mobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+    <header className="w-full bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <Image src={logo} alt="NanoKite Logo" width={140} height={40} />
+        </div>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <button onClick={() => scrollToSection("home")} className="hover:text-blue-600">Home</button>
+          <button onClick={() => scrollToSection("services")} className="hover:text-blue-600">Services</button>
+          <button onClick={() => scrollToSection("projects")} className="hover:text-blue-600">Portfolio</button>
+          <button onClick={() => scrollToSection("contact")} className="hover:text-blue-600">Contact</button>
+        </nav>
+
+        {/* CTA */}
+        <div className="hidden md:block">
+          <button className="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition">
+            Get a Quote
           </button>
         </div>
+
+        {/* Mobile Button */}
+        <button
+          className="md:hidden text-2xl"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
       </div>
-      <div
-        className={`md:hidden overflow-hidden bg-white shadow-lg w-full absolute left-0 top-full transition-all duration-300 ease-in-out`}
-        style={{ maxHeight: `${menuHeight}px` }}
-      >
-        <div className="flex flex-col space-y-4 px-6 py-4">
-          {links.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-slate-700 hover:text-blue-600 font-medium transition-colors duration-300 "
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
-          ))}
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden bg-white shadow-md px-6 py-4 space-y-4 text-slate-700">
+          <button onClick={() => scrollToSection("home")} className="block w-full text-left">Home</button>
+          <button onClick={() => scrollToSection("services")} className="block w-full text-left">Services</button>
+          <button onClick={() => scrollToSection("projects")} className="block w-full text-left">Portfolio</button>
+          <button onClick={() => scrollToSection("contact")} className="block w-full text-left">Contact</button>
+
+          <button className="w-full bg-blue-500 text-white py-2 rounded-lg mt-2">
+            Get a Quote
+          </button>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
 

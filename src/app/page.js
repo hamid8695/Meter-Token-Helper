@@ -7,19 +7,24 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+import Services from "./components/Services";
 
 const page = () => {
   return (
     <>
+    <Navbar/>
       <Banner />
+      <Services />
+      <Projects />
+      <Contact />
+      <Footer />
       {/* <Navbar />
       
       <About />
       <Skills />
       <Experience />
       <Projects />
-      <Contact />
-      <Footer /> */}
+       */}
     </>
   );
 };
