@@ -52,11 +52,12 @@ const Projects = () => {
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Link
-              href={project.link}
-              key={index}
-              target={project.link.startsWith("http") ? "_blank" : "_self"}
-            >
+            // <Link
+            //   href={project.link}
+            //   key={index}
+            //   target={project.link.startsWith("http") ? "_blank" : "_self"}
+            // >
+            <div key={index}>
               <div className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition bg-white border border-slate-100">
 
                 {/* Image */}
@@ -78,13 +79,13 @@ const Projects = () => {
                   <p className="text-sm text-slate-500 mt-1">
                     {project.category}
                   </p>
-                  <span className="mt-3 inline-block text-blue-600 text-sm font-medium group-hover:underline">
+                  {/* <span className="mt-3 inline-block text-blue-600 text-sm font-medium group-hover:underline">
                     View Details →
-                  </span>
+                  </span> */}
                 </div>
 
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

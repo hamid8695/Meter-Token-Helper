@@ -42,8 +42,8 @@ const Footer = () => {
         <div>
           <h3 className="text-white font-semibold mb-3">Contact</h3>
           <ul className="space-y-2 text-sm">
-            <li>📞 +8801XXXXXXXXX</li>
-            <li>✉️ info@nanokite.com</li>
+            <li>📞 +880 1831-763513</li>
+            <li>✉️ nanokite1@gmail.com</li>
             <li>📍 Chattogram, Bangladesh</li>
           </ul>
 
