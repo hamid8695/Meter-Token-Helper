@@ -32,7 +32,9 @@ const Navbar = () => {
 
         {/* CTA */}
         <div className="hidden md:block">
-          <button className="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition">
+          <button onClick={() => {
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+}} className="bg-blue-500 text-white px-5 py-2 rounded-full hover:bg-blue-600 transition">
             Get a Quote
           </button>
         </div>
