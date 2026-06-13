@@ -111,31 +111,34 @@ export default function Page() {
 
           
 
-         <div className="mt-4 flex gap-2">
+       <div className="mt-4 flex gap-2">
 
   {/* Paste Button */}
- <button onClick={handlePaste} className="flex items-center gap-2 rounded-2xl bg-slate-900/80 px-3 py-3 text-white text-sm shadow-md border border-slate-700 hover:bg-slate-800 transition">
-  <FiClipboard />
-  Paste
-</button>
+  <button
+    onClick={handlePaste}
+    className="flex items-center gap-2 whitespace-nowrap rounded-2xl bg-slate-900/80 px-3 py-3 text-white text-sm shadow-md border border-slate-700 hover:bg-slate-800 transition"
+  >
+    <FiClipboard />
+    Paste
+  </button>
 
   {/* Parse Button */}
   <button
     onClick={handleParse}
-    className="flex flex-[2] items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-4 py-3 text-white text-sm font-bold shadow-xl hover:scale-[1.02] active:scale-[0.98] transition"
+    className="flex flex-[2] items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-4 py-3 text-white text-sm font-bold shadow-xl hover:scale-[1.02] active:scale-[0.98] transition"
   >
     <FiRefreshCcw />
-    Parse Tokens
+    Parse
   </button>
 
   {/* Clear Button */}
- <button
-  onClick={() => setShowClearModal(true)}
-  className="flex items-center gap-2 rounded-2xl bg-red-500/90 px-3 py-3 text-white text-sm shadow-md hover:bg-red-600 active:scale-[0.98] transition"
->
-  <FiX />
-  Clear
-</button>
+  <button
+    onClick={() => setShowClearModal(true)}
+    className="flex items-center gap-2 whitespace-nowrap rounded-2xl bg-red-500/90 px-3 py-3 text-white text-sm shadow-md hover:bg-red-600 active:scale-[0.98] transition"
+  >
+    <FiX />
+    Clear
+  </button>
 
 </div>
          {error && (
