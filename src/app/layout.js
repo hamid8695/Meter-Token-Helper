@@ -1,14 +1,14 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "NanoKite",
-  description: "Innovative Software Solutions",
+  title: "Meter220 | মিটার টোকেন হেল্পার",
+  description: "প্রিপেইড মিটার টোকেন এসএমএস থেকে দ্রুত টোকেন বের করুন",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className="relative bg-gradient-to-br from-slate-50 to-blue-50">
+    <html lang="bn">
+      <body className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
         {children}
       </body>
     </html>
