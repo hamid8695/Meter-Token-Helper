@@ -111,34 +111,49 @@ export default function Page() {
 
           
 
-       <div className="mt-4 flex gap-2">
+       <div className="mt-4 flex items-center gap-3">
 
   {/* Paste Button */}
   <button
     onClick={handlePaste}
-    className="flex items-center gap-2 whitespace-nowrap rounded-2xl bg-slate-900/80 px-3 py-3 text-white text-sm shadow-md border border-slate-700 hover:bg-slate-800 transition"
+    className="h-12 w-12 flex items-center justify-center rounded-2xl bg-slate-900/80 text-white shadow-lg border border-slate-700 hover:bg-slate-800 active:scale-95 transition"
+    title="Paste"
   >
-    <FiClipboard />
-    Paste
+    <FiClipboard size={20} />
   </button>
 
   {/* Parse Button */}
   <button
     onClick={handleParse}
-    className="flex flex-[2] items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 px-4 py-3 text-white text-sm font-bold shadow-xl hover:scale-[1.02] active:scale-[0.98] transition"
+    className="flex-1 h-12 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white text-sm font-bold shadow-xl hover:scale-[1.02] active:scale-[0.98] transition"
   >
-    <FiRefreshCcw />
-    Parse
+    <FiRefreshCcw size={18} />
+    <span>Parse Token</span>
   </button>
 
   {/* Clear Button */}
-  <button
+  {/* <button
     onClick={() => setShowClearModal(true)}
-    className="flex items-center gap-2 whitespace-nowrap rounded-2xl bg-red-500/90 px-3 py-3 text-white text-sm shadow-md hover:bg-red-600 active:scale-[0.98] transition"
+    className="h-12 w-12 flex items-center justify-center rounded-2xl bg-red-500/10 text-red-500 border border-red-200 shadow-lg hover:bg-red-500 hover:text-white active:scale-95 transition"
+    title="Clear"
   >
-    <FiX />
-    Clear
-  </button>
+    <FiX size={22} />
+  </button> */}
+
+  <button
+  onClick={() => setShowClearModal(true)}
+  disabled={!sms.trim()}
+  className={`h-12 w-12 flex items-center justify-center rounded-2xl border shadow-lg transition
+    ${
+      sms.trim()
+        ? "bg-red-500/10 text-red-500 border-red-200 hover:bg-red-500 hover:text-white active:scale-95"
+        : "bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed opacity-50"
+    }
+  `}
+  title="Clear"
+>
+  <FiX size={22} />
+</button>
 
 </div>
          {error && (
@@ -180,12 +195,12 @@ export default function Page() {
 
     {/* ACTION BUTTON */}
 {!done ? (
-  <button
-    onClick={handleEnter}
-    className="mt-6 w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-4 text-white font-bold shadow-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] animate-pulse"
-  >
-    ENTER DONE • STEP {activeIndex + 1}/{tokens.length}
-  </button>
+ <button
+  onClick={handleEnter}
+  className="mt-6 w-full rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 py-4 text-white font-bold shadow-xl transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+>
+  ENTER DONE • STEP {activeIndex + 1}/{tokens.length}
+</button>
 ) : (
   <div className="mt-6 rounded-2xl border border-green-200 bg-green-50 py-4 text-center font-bold text-green-700 shadow-sm animate-bounce">
     ✓ ALL COMPLETED
