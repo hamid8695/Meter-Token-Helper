@@ -181,7 +181,7 @@ export default function Page() {
     </div>
 
     {/* TOKEN DISPLAY */}
-    <div className="text-center">
+    {/* <div className="text-center">
       <div className="text-3xl font-mono font-bold tracking-widest text-slate-900">
         {formatToken(current)}
       </div>
@@ -191,7 +191,38 @@ export default function Page() {
           Next → <span className="font-medium text-slate-700">{formatToken(next)}</span>
         </p>
       )}
+    </div> */}
+
+
+    <div className="text-center space-y-3">
+  {/* Current Token Card */}
+  <div className="relative mx-auto w-fit">
+    <div className="px-6 py-4 rounded-2xl bg-slate-100 border border-slate-200 shadow-sm">
+      <div className="text-3xl font-mono font-bold tracking-[0.35em] text-slate-900 select-none">
+        {formatToken(current)}
+      </div>
     </div>
+
+    {/* subtle indicator dot */}
+    <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-blue-500 "></span>
+    <span className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-blue-600"></span>
+  </div>
+
+  {/* Next Token Guide */}
+  {next && (
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200">
+      <span className="text-[11px] text-slate-500">Next Step</span>
+      <span className="text-xs font-semibold text-slate-800 font-mono tracking-widest">
+        {formatToken(next)}
+      </span>
+    </div>
+  )}
+
+  {/* Hint */}
+  <p className="text-[11px] text-slate-400">
+    Enter tokens one by one in correct sequence
+  </p>
+</div>
 
     {/* ACTION BUTTON */}
 {!done ? (
